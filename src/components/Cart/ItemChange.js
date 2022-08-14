@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {useLocation} from 'react-router-dom'
-import { changeItem } from './features/cartSlice';
-import {NavLink,Link} from 'react-router-dom'
-function ItemChange({id}) {
+import { changeItem } from '../features/cartSlice';
+import {NavLink} from 'react-router-dom'
+function ItemChange() {
   
   let location = useLocation();
   const dispatch = useDispatch();

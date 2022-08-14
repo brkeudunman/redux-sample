@@ -1,38 +1,40 @@
 import CartContainer from "./components/Cart/CartContainer";
 import Navbar from "./components/Navbar";
 import {useDispatch,useSelector} from 'react-redux'
-import { calculateTotals,getCartItems } from "./components/features/cartSlice";
 import { useEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+
 import Shopping from "./components/Shopping/Shopping";
-import ItemChange from "./components/ItemChange";
+import ItemChange from "./components/Cart/ItemChange";
+
+import { calculateListAmount, fetchShoppingList } from "./components/features/shoppingSlice";
+import { calculateTotals } from "./components/features/cartSlice";
 
 
 function App() {
 
-  const {cartItems,isLoading} =  useSelector((state)=>(state.cart))
+
+  const {shoppingList,listAmount} = useSelector((state)=>(state.shopping))
+  const {cartItems} = useSelector((state)=>(state.cart))
   
   const dispatch = useDispatch()
-  
-  useEffect(() => {
+
+  useEffect(()=>{
     dispatch(calculateTotals())
-  }, [cartItems])
+  },[cartItems])
+
+  useEffect(()=>{
+    dispatch(calculateListAmount())
+  },[shoppingList])
   
   useEffect(()=>{
-    dispatch(getCartItems())
+    dispatch(fetchShoppingList())
   },[])
-
-  if(isLoading){
-    return(
-      <div>
-        Loading...
-      </div>
-    )
-  }
 
   return (
     <main >
       <Navbar></Navbar>
+      {listAmount}
       <Routes>
         <Route  excact path="*" element={<Shopping />} />
         <Route exact path="cart" element={<CartContainer />} />

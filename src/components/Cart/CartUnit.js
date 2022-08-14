@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ChevronDown,ChevronUp } from '../../icons'
 import { useDispatch } from 'react-redux'
-import { removeItem,increaseItem,decreaseItem ,changeItem} from '../features/cartSlice'
+import { removeItem,increaseItem,decreaseItem } from '../features//cartSlice'
 import { NavLink } from 'react-router-dom'
-import ItemChange from '../ItemChange'
-
-
+import ItemChange from './ItemChange'
 
 
 const CartUnit = ({id,img,title,price,amount}) => {

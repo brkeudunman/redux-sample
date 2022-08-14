@@ -2,7 +2,7 @@ import React from 'react'
 import CartUnit from './CartUnit'
 import { useSelector,useDispatch } from 'react-redux'
 import { clearCart } from '../features/cartSlice'
-import { NavLink } from 'react-router-dom'
+
 
 const CartContainer = () => {
 
@@ -25,9 +25,9 @@ const CartContainer = () => {
             <div>
             {cartItems.map((item)=>{
                 return(
-            <div>
-                 <CartUnit key={item.id} {...item}></CartUnit>
-            </div>)})}
+                        <div>
+                            <CartUnit key={item.id} {...item}></CartUnit>
+                        </div>)})}
 
             </div>
             <footer>
