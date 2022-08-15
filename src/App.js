@@ -34,7 +34,6 @@ function App() {
   return (
     <main >
       <Navbar></Navbar>
-      {listAmount}
       <Routes>
         <Route  excact path="*" element={<Shopping />} />
         <Route exact path="cart" element={<CartContainer />} />
