@@ -17,7 +17,6 @@ function Shopping() {
 
   return (
     <div className='cart'>
-    
          <div>
             {shoppingList.map((item)=>{
                 return(
